@@ -35,7 +35,7 @@ endif()
 #message(STATUS "MERGEHEX: ${MERGEHEX}")
 #message(STATUS "NRFUTIL: ${NRFUTIL}")
 
-set(PCA_BLACKLIST "pca10036;")
+set(PCA_BLACKLIST "pca10059;")
 
 if(NOT MERGEHEX)
     message(FATAL_ERROR "mergehex not found, not able to merge connectivity firmware with SoftDevice.")

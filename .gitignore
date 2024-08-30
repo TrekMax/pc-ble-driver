@@ -49,3 +49,4 @@ build*/
 
 /_build*
 /build*
+temp/

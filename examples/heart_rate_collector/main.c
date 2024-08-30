@@ -610,6 +610,23 @@ static void on_connected(const ble_gap_evt_t * const p_ble_gap_evt)
 
     service_discovery_start();
 }
+#if NRF_SD_BLE_API >= 6
+const char* print_ble_gap_adv_report_type(ble_gap_adv_report_type_t type)
+{
+    uint16_t raw_value = *((uint16_t *)&type);
+
+    printf("Type Raw: 0x%X\n", raw_value);
+
+    printf("Connectable: %u\n", type.connectable);
+    printf("Scannable: %u\n", type.scannable);
+    printf("Directed: %u\n", type.directed);
+    printf("Scan Response: %u\n", type.scan_response);
+    printf("Extended PDU: %u\n", type.extended_pdu);
+    printf("Status: %u\n", type.status);
+    // Reserved field is not printed as it's for future use
+    return NULL;
+}
+#endif
 
 /**@brief Function called on BLE_GAP_EVT_ADV_REPORT event.
  *
@@ -624,7 +641,13 @@ static void on_adv_report(const ble_gap_evt_t * const p_ble_gap_evt)
 
     // Log the Bluetooth device address of advertisement packet received.
     ble_address_to_string_convert(p_ble_gap_evt->params.adv_report.peer_addr, str);
+#if NRF_SD_BLE_API >= 6
+    // printf("NRF_SD_BLE_API:%d\n", NRF_SD_BLE_API);
+    printf("find device: %s ", str);
+    print_ble_gap_adv_report_type(p_ble_gap_evt->params.adv_report.type);
+#else
     printf("Received advertisement report with device address: 0x%s\n", str);
+#endif
     fflush(stdout);
 
     if (find_adv_name(&p_ble_gap_evt->params.adv_report, TARGET_DEV_NAME))
