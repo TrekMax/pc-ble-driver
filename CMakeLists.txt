@@ -213,7 +213,7 @@ foreach(SD_API_VER ${SD_API_VERS})
 endforeach(SD_API_VER)
 
 # Set common include directories
-find_path(ASIO_INCLUDE_DIR asio.hpp)
+find_package(asio CONFIG REQUIRED)
 
 # Set per-SD API version include directories and compiler definitions
 foreach(SD_API_VER ${SD_API_VERS})
