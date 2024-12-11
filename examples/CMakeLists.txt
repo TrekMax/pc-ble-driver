@@ -53,5 +53,6 @@ setup_example(heart_rate_monitor)
 setup_example(heart_rate_collector)
 setup_example(port_enumeration)
 setup_example(nordic_uart_client)
+setup_example(voice_remote_collerctor)
 
 message(STATUS "Compiled examples are installed in directory \"${CMAKE_INSTALL_BINDIR}\"")

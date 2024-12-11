@@ -31,9 +31,9 @@ else()
     endif()
 endif()
 
-#message(STATUS "GCC_TOOLCHAIN_PATH: ${GCC_TOOLCHAIN_PATH}")
-#message(STATUS "MERGEHEX: ${MERGEHEX}")
-#message(STATUS "NRFUTIL: ${NRFUTIL}")
+message(STATUS "GCC_TOOLCHAIN_PATH: ${GCC_TOOLCHAIN_PATH}")
+message(STATUS "MERGEHEX: ${MERGEHEX}")
+message(STATUS "NRFUTIL: ${NRFUTIL}")
 
 set(PCA_BLACKLIST "pca10059;")
 
